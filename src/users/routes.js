@@ -55,9 +55,9 @@ const UpdateUserSchema = {
   }),
   body: Joi.object({
     password: Joi.string().min(10).max(40),
-    firstName: Joi.string().regex(NameRegex).required(),
-    lastName: Joi.string().regex(NameRegex).required(),
-  }).or('password', 'fistName', 'lastName'),
+    firstName: Joi.string().regex(NameRegex),
+    lastName: Joi.string().regex(NameRegex),
+  }).or('password', 'firstName', 'lastName')
 }
 
 const updateUser = async (req, res) => {
